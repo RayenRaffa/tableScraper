@@ -17,6 +17,8 @@ def negativeValuesHandler(value):
     else:
         value.strip('$')
 
+    return value
+
 def generateUrls(base_url,config='./Input JC Account Numbers.csv'):
     # Read account numbers from config file and generate URLs to be scraped
     # Returns a list of valid, hopefully, URLs
