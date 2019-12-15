@@ -1,5 +1,5 @@
 # This file contains special formatiing function(s) to clean scraped data
-
+import csv
 
 
 def negativeValuesHandler(value):
@@ -19,7 +19,7 @@ def negativeValuesHandler(value):
 
     return value
 
-def generateUrls(base_url,config='./Input JC Account Numbers.csv'):
+def generateUrls(base_url,config):
     # Read account numbers from config file and generate URLs to be scraped
     # Returns a list of valid, hopefully, URLs
     urls = []
@@ -35,12 +35,8 @@ def generateUrls(base_url,config='./Input JC Account Numbers.csv'):
                 print(f'Error parsing line for Account Number : {e}')
                 err_count += 1
         print(f'Corrupt lines found : {err_count}')
-        print(f'Found {len(urls)} usable lines ( Acc Nums ) !')
+        print(f'Found {len(urls)} usable lines Account Numbers !')
+    
+    urls.sort()
 
     return urls
-
-
-
-
-
-base_url = http://taxes.cityofjerseycity.com/ViewPay?accountNumber=
