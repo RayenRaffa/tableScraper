@@ -90,7 +90,7 @@ def extractPaymentsTable(url,payments_table,out_dir='./out/'):
 
 
 
-def extractCertificateTable(url,g_cert_data,certif_table,out_dir='./out/'):
+def extractCertificateTable(url,certif_table,out_dir='./out/'):
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
     
@@ -223,7 +223,7 @@ def main(base_url,config='./Input JC Account Numbers.csv',out_dir='./out/',log_d
     urls = sf.generateUrls(base_url,config)
     line_count = 1
     # Debugging : scraping for the first 100 account numbers
-    urls = urls[:100]
+    urls = urls[:30]
     mainRecords = []
     for url in urls:
         account = url.split('=')[-1]
@@ -244,4 +244,5 @@ def main(base_url,config='./Input JC Account Numbers.csv',out_dir='./out/',log_d
 
 base_url = 'http://taxes.cityofjerseycity.com/ViewPay?accountNumber='
 
-main(base_url)
+#main(base_url)
+main(base_url,config='./test_config.csv')
