@@ -1,4 +1,5 @@
 import os
+import sys
 import csv
 import pandas as pd
 from pandas import ExcelWriter
@@ -64,10 +65,10 @@ def extractRecords(row):
 
 def table_to_csv(headers,table_rows,out_file):
     if not os.path.exists(out_file):
-        with open(out_file, 'a') as csv_file:
+        with open(out_file, 'a', newline='') as csv_file:
             writer = csv.writer(csv_file)
             writer.writerow(headers)       
-    with open(out_file, 'a') as csv_file:
+    with open(out_file, 'a', newline='') as csv_file:
         writer = csv.writer(csv_file)
         writer.writerows(table_rows)
 
@@ -244,5 +245,5 @@ def main(base_url,config='./Input JC Account Numbers.csv',out_dir='./out/',log_d
 
 base_url = 'http://taxes.cityofjerseycity.com/ViewPay?accountNumber='
 
-#main(base_url)
-main(base_url,config='./test_config.csv')
+main(base_url)
+#main(base_url,config='./test_config.csv')
