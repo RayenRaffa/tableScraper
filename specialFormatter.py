@@ -37,6 +37,6 @@ def generateUrls(base_url,config):
         print(f'Corrupt lines found : {err_count}')
         print(f'Found {len(urls)} usable lines Account Numbers !')
     
-    urls.sort()
+    #urls.sort()
 
     return urls
